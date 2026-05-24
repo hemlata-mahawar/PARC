@@ -19,6 +19,7 @@ class LocalDevelopmentConfig(Config):
 
 class cacheConfig():
     CACHE_TYPE = "RedisCache"
-    CACHE_REDIS_URL = "redis://localhost:6379/2"
+    # CACHE_REDIS_URL = "redis://localhost:6379/2"
+    CACHE_REDIS_URL = os.getenv("REDIS_URL")
     CACHE_DEFAULT_TIMEOUT = 500 
     CACHE_KEY_PREFIX = "mycache"

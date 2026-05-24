@@ -1,4 +1,5 @@
-from flask import current_app as app, jsonify, render_template, request, send_from_directory
+# from flask import current_app as app, jsonify, render_template, request, send_from_directory
+from flask import jsonify, render_template, request, send_from_directory
 from flask_security import auth_required, login_user, logout_user, current_user, roles_required, roles_accepted, hash_password, verify_password
 from datetime import datetime
 from sqlalchemy import func
@@ -10,6 +11,7 @@ from .utils import *
 from .tasks import csv_report, monthly_report
 from cache import cache
 from .resources import get_user_data
+from app import app
 
 
 @app.route('/', methods=['GET'])
