@@ -57,7 +57,7 @@ from flask import render_template
 @app.route('/<path:path>')
 def catch_all(path):
     if path.startswith("api"):
-        return {"error": "API route not found"}, 404
+        abort(404)
 
     return render_template("index.html")
 
