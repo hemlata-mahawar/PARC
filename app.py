@@ -51,6 +51,16 @@ if os.getenv("FLASK_ENV") != "production":
 
 from application.routes import *
 
+from flask import render_template
+
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def catch_all(path):
+    if path.startswith("api"):
+        return {"error": "API route not found"}, 404
+
+    return render_template("index.html")
+
 @celery.on_after_finalize.connect
 def setup_periodic_tasks(sender, **kwargs):
     sender.add_periodic_task(
