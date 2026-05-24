@@ -4,8 +4,8 @@
 
 from os import getenv
 
-broker_url = getenv("CELERY_BROKER_URL")
-result_backend = getenv("CELERY_RESULT_BACKEND")
+broker_url = getenv("REDIS_URL")
+result_backend = getenv("REDIS_URL")
 
 timezone = "Asia/Kolkata"
 
